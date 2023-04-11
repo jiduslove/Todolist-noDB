@@ -59,8 +59,7 @@ router.put("/:id", (req, res) => {
 
   todoData[parseInt(id)] = {
     title: title ? title : todoData[parseInt(id)].title,
-    desc: desc ? desc : todoData[parseInt(id)].desc, // title과 desc에 삼항연산자를 사용함으로서 title이나 desc중 원하는 값만 바꾸고 싶을때 사용한다. 기존에 값이 있으면 그냥 사용하도록 한다.
-    isDone: todoData[parseInt(id)].isDone,
+    desc: desc ? desc : todoData[parseInt(id)].desc, // title과 desc에 삼항연산자를 사용함으로서 title이나 desc중 원하는 값만 바꾸고 싶을때 사용한다. 기존에 값이 있으면 기존값이 사용되도록 한다.
   };
 
   res.json(todoData);
