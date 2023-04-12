@@ -39,11 +39,19 @@ function App() {
           나무 베는데 한 시간이 주어진다면, 도끼를 가는데 45분을 쓰겠다,
           에비브러햄 링컨
         </div>
-        <CreateToDo />
+        <CreateToDo getToDoList={getToDoList} />
         <ul className="mt-16 flex flex-col w-1/2">
           {toDoList &&
             toDoList.map((v, i) => {
-              return <TodoCard key={i} title={v.title} />; //react 각각의 component가 무엇인지 구분하기 위해서 key(i)값을 넣어줌.
+              return (
+                <TodoCard
+                  key={i}
+                  title={v.title}
+                  isDone={v.isDone}
+                  index={i}
+                  getToDoList={getToDoList}
+                />
+              ); //react 각각의 component가 무엇인지 구분하기 위해서 key(i)값을 넣어줌.
             })}
         </ul>
       </div>

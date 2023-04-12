@@ -58,7 +58,7 @@ router.put("/:id", (req, res) => {
   }
 
   todoData[parseInt(id)] = {
-    title: title ? title : todoData[parseInt(id)].title,
+    title: title ? title : todoData[parseInt(id)].title, // 타이틀이 있으면 원하는값으로 변경하고, 없으면 DB로 부터 기존값을 가져온다.
     desc: desc ? desc : todoData[parseInt(id)].desc, // title과 desc에 삼항연산자를 사용함으로서 title이나 desc중 원하는 값만 바꾸고 싶을때 사용한다. 기존에 값이 있으면 기존값이 사용되도록 한다.
   };
 
