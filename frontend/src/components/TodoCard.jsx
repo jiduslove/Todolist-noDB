@@ -1,4 +1,5 @@
 import axios from "axios";
+import { FiDelete } from "react-icons/fi";
 
 const TodoCard = ({ title, isDone, index, getToDoList }) => {
   const onClickToggle = async () => {
@@ -36,24 +37,34 @@ const TodoCard = ({ title, isDone, index, getToDoList }) => {
   };
 
   return (
-    <>
+    <div>
       {isDone ? (
         <li className="flex my-4" onClick={onClickToggle}>
           <div className="relative">
-            <div className="border-4 border-pink-400 w-8 h-8 rounded-xl"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-white bg-pink-400 w-8 h-8 scale-75 rounded-xl"></div>
+            <div className="border-4 border-green-400 w-8 h-8 rounded-xl"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-white bg-yellow-400 w-8 h-8 scale-75 rounded-xl"></div>
           </div>
           <div className="text-2xl ml-4">{title}</div>
-          <button onClick={onClickDelete}>삭제</button>
+          <button
+            className="ml-4 hover:text-yellow-400 hover:scale-[130%] ease-in duration-0"
+            onClick={onClickDelete}
+          >
+            <FiDelete size={24} />
+          </button>
         </li>
       ) : (
         <li className="flex my-4" onClick={onClickToggle}>
-          <div className="border-4 border-pink-400 w-8 h-8 rounded-xl"></div>
+          <div className="border-4 border-green-400 w-8 h-8 rounded-xl"></div>
           <div className="text-2xl ml-4">{title}</div>
-          <button onClick={onClickDelete}>삭제</button>
+          <button
+            className="ml-4 hover:text-yellow-400 hover:scale-[130%] ease-in duration-0"
+            onClick={onClickDelete}
+          >
+            <FiDelete size={24} />
+          </button>
         </li>
       )}
-    </>
+    </div>
   );
 };
 

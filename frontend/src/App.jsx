@@ -11,8 +11,13 @@ function App() {
       const response = await axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/todo`
       );
+      // 동기적인 상황 : 코드가 위에서부터 순차적으로 실행.
+      // 비동기적인 상황 : 순차적으로 실행되는데 특정코드만 독립적으로 실행됨.
+      //그렇게 백엔드에서 처리되는 시간이 다르기 때문에 비동기함수를 사용해서
+      //백엔드의 정보가 넘어올때까지 기다려라. 라고 명령하기 위해 async,await 를 사용.
 
       if (response.status !== 200) {
+        //state가 200번이 아닐경우에는 리턴하도록 함.
         alert("요청을 불러오지 못했습니다.");
         return;
       }
@@ -24,6 +29,7 @@ function App() {
   };
 
   useEffect(() => {
+    //useEffect는 비동기함수로 만들 수 없음.
     getToDoList();
   }, []);
 

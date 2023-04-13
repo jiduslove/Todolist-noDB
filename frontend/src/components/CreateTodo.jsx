@@ -27,7 +27,8 @@ const CreateToDo = ({ getToDoList }) => {
       }
 
       getToDoList();
-      setTitle("");
+      setTitle(""); //기존에 투구생성창에 입력되어있던 내용을 입력하고 나면 사라져야하는데 사라지지 않을때
+      // setTitle("");에 ()안에 빈값을 넣어서 빈값으로 업데이트가 되도록 설정.
     } catch (error) {
       console.error(error);
     }
